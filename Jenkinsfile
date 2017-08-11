@@ -11,4 +11,7 @@ node {
     stage ('Run unittests') {
         sh 'docker run --rm ca_project_image:1.0 python tests.py'
     }
+    stage ('Run run.py') {
+        sh 'docker run -d -p 5000:5000 magnubac/codechan:0.1'
+    }
 }
