@@ -11,7 +11,14 @@ node {
     stage ('Run unittests') {
         sh 'docker run --rm ca_project_image:1.0 python tests.py'
     }
+    stage ('Stop prev version') {
+        try {
+            sh 'docker stop ca_project_container'
+        } catch (Exception ex) {
+            echo 'Could not stop previous version.'
+        }
+    }
     stage ('Run run.py') {
-        sh 'docker run -d -p 5000:5000 magnubac/codechan:0.1'
+        sh 'docker run --name ca_project_container -d -p 5000:5000 magnubac/codechan:0.1'
     }
 }
