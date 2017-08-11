@@ -22,4 +22,7 @@ node {
     stage ('Run run.py') {
         sh 'docker run --name ca_project_container -d -p 5000:5000 magnubac/ca_project_image:1.0'
     }
+    stage ('Functional test') {
+        sh 'curl http://52.31.226.107:5000/'
+    }
 }
