@@ -8,4 +8,7 @@ node {
     stage ('Build docker image') {
         sh 'docker build -t ca_project_image:1.0 .'
     }
+    stage ('Run unittests') {
+        sh 'docker run --rm ca_project_image:1.0 python tests.py'
+    }
 }
