@@ -20,6 +20,6 @@ node {
         }
     }
     stage ('Run run.py') {
-        sh 'docker run --name ca_project_container -d -p 5000:5000 magnubac/codechan:0.1'
+        sh 'docker run --name ca_project_container -d -p 5000:5000 magnubac/codechan:1.0'
     }
 }
