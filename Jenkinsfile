@@ -7,6 +7,6 @@ node {
     }
     stage ('Run unittests') {
         sh 'cd ca-project'
-        sh python tests.py'
+        sh 'python tests.py'
     }
 }
