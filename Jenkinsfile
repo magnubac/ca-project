@@ -6,10 +6,10 @@ node {
         git credentialsId: '480beb66-2115-44cc-b64f-8d77e6efbdc5', url: 'git@github.com:magnubac/ca-project.git'
     }
     stage ('Build docker image') {
-        sh 'docker build -t ca_project_image:1.0 .'
+        sh 'docker build -t magnubac/ca_project_image:1.0 .'
     }
     stage ('Run unittests') {
-        sh 'docker run --rm ca_project_image:1.0 python tests.py'
+        sh 'docker run --rm magnubac/ca_project_image:1.0 python tests.py'
     }
     stage ('Stop prev version') {
         try {
@@ -20,6 +20,6 @@ node {
         }
     }
     stage ('Run run.py') {
-        sh 'docker run --name ca_project_container -d -p 5000:5000 ca_project_image:1.0'
+        sh 'docker run --name ca_project_container -d -p 5000:5000 magnubac/ca_project_image:1.0'
     }
 }
