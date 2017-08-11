@@ -14,6 +14,7 @@ node {
     stage ('Stop prev version') {
         try {
             sh 'docker stop ca_project_container'
+            sh 'docker rm ca_project_container'
         } catch (Exception ex) {
             echo 'Could not stop previous version.'
         }
