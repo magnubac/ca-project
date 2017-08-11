@@ -3,6 +3,6 @@
 node {
     stage ('Preparation') {
         echo 'Cloning repo...'
-        git credentialsId: '91ca7d99-365c-469d-99c7-c5c254130aae', url: 'git@github.com:magnubac/ca-project.git'
+        git credentialsId: '480beb66-2115-44cc-b64f-8d77e6efbdc5', url: 'git@github.com:magnubac/ca-project.git'
     }
 }
