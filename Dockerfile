@@ -79,8 +79,6 @@ RUN set -ex; \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
 
-# install "virtualenv", since the vast majority of users of this image will want it
-RUN pip install --no-cache-dir virtualenv
 
 ADD . .
 
